@@ -5,10 +5,6 @@ use exbico\jsend\interfaces\ResponseInterface;
 
 class Response implements ResponseInterface
 {
-    const ERROR = 'error';
-    const FAIL = 'fail';
-    const SUCCESS = 'success';
-
     public $status = self::SUCCESS;
     public $message;
     public $version;

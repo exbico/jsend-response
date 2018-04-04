@@ -4,6 +4,10 @@ namespace exbico\jsend\interfaces;
 
 interface ResponseInterface
 {
+    const ERROR = 'error';
+    const FAIL = 'fail';
+    const SUCCESS = 'success';
+
     public function getStatus();
 
     public function setStatus(string $status);
