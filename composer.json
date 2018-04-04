@@ -1,0 +1,44 @@
+{
+    "name": "exbico/jsend-response",
+    "description": "JSend implementation in php",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://bitbucket.org/exbico/jsendresponse",
+    "keywords": [
+        "scheduler",
+        "cron jobs",
+        "cron",
+        "Task Scheduler",
+        "PHP Task Scheduler",
+        "Job Scheduler",
+        "Job Manager",
+        "Event Runner"
+    ],
+    "autoload": {
+        "psr-4": {
+            "exbico\\jsend\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yurij",
+            "email": "koptev@exbico.ru"
+        },
+        {
+            "name": "Ezytli",
+            "email": "putilin@exbico.ru"
+        },
+        {
+            "name": "AxelPAL",
+            "email": "palchikov@exbico.ru"
+        }
+    ],
+    "require": {
+      "php": ">= 5.4.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "^2.4"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
