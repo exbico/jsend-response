@@ -5,14 +5,7 @@
     "license": "MIT",
     "homepage": "https://bitbucket.org/exbico/jsendresponse",
     "keywords": [
-        "scheduler",
-        "cron jobs",
-        "cron",
-        "Task Scheduler",
-        "PHP Task Scheduler",
-        "Job Scheduler",
-        "Job Manager",
-        "Event Runner"
+        "JSend"
     ],
     "autoload": {
         "psr-4": {
