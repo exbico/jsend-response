@@ -9,6 +9,7 @@ class Response implements ResponseInterface
     public $message;
     public $version;
     public $data = [];
+    public $code;
 
     public function __toString()
     {
@@ -58,5 +59,29 @@ class Response implements ResponseInterface
     public function setVersion(string $version)
     {
         $this->version = $version;
+    }
+
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    public function setCode(int $code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @param array $data
+     * @return $this
+     */
+    public function setAttributes(array $data): ResponseInterface
+    {
+        foreach ($data as $key => $item) {
+            if ($item !== null && property_exists($this, $key)) {
+                $this->$key = $item;
+            }
+        }
+        return $this;
     }
 }

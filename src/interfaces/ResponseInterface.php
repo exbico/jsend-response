@@ -25,4 +25,11 @@ interface ResponseInterface
     public function getVersion();
 
     public function setVersion(string $version);
+
+    /** @var integer|null error code */
+    public function getCode();
+
+    public function setCode(int $code);
+
+    public function setAttributes(array $data): self;
 }
