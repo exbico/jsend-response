@@ -14,7 +14,7 @@ class Response implements ResponseInterface
 
     public function __toString()
     {
-        return json_encode($this);
+        return (string)json_encode($this);
     }
 
     public function getData(): array
@@ -22,12 +22,12 @@ class Response implements ResponseInterface
         return (array)$this->data;
     }
 
-    public function setData(array $data)
+    public function setData(array $data): void
     {
         $this->data = $data;
     }
 
-    public function addData(array $data)
+    public function addData(array $data): void
     {
         $this->data = array_merge((array)$this->data, $data);
     }
@@ -37,37 +37,37 @@ class Response implements ResponseInterface
         return $this->status;
     }
 
-    public function setStatus(string $status)
+    public function setStatus(string $status): void
     {
         $this->status = $status;
     }
 
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->message;
     }
 
-    public function setMessage(string $message)
+    public function setMessage(string $message): void
     {
         $this->message = $message;
     }
 
-    public function getVersion(): string
+    public function getVersion(): ?string
     {
         return $this->version;
     }
 
-    public function setVersion(string $version)
+    public function setVersion(string $version): void
     {
         $this->version = $version;
     }
 
-    public function getCode()
+    public function getCode(): ?int
     {
         return $this->code;
     }
 
-    public function setCode(int $code)
+    public function setCode(int $code): void
     {
         $this->code = $code;
     }

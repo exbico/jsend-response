@@ -1,16 +1,31 @@
 <?php
 
+namespace tests\unit;
+
+use Codeception\Test\Unit;
 use exbico\jsend\interfaces\ResponseInterface;
 use exbico\jsend\Response;
+use UnitTester;
 
-class ResponseTest extends \Codeception\Test\Unit
+class ResponseTest extends Unit
 {
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
-    public function testResponse()
+    public function testDefaultValues(): void
+    {
+        $response = new Response();
+        $this->assertNull($response->getMessage());
+        $this->assertNull($response->getVersion());
+        $this->assertIsArray($response->getData());
+        $this->assertEmpty($response->getData());
+        $this->assertNull($response->getCode());
+        $this->assertEquals(ResponseInterface::SUCCESS, $response->getStatus());
+    }
+
+    public function testResponse(): void
     {
         $response = new Response();
         $this->tester->assertInstanceOf(ResponseInterface::class, $response);

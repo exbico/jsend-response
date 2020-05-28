@@ -4,32 +4,31 @@ namespace exbico\jsend\interfaces;
 
 interface ResponseInterface
 {
-    const ERROR = 'error';
-    const FAIL = 'fail';
-    const SUCCESS = 'success';
+    public const ERROR = 'error';
+    public const FAIL = 'fail';
+    public const SUCCESS = 'success';
 
-    public function getStatus();
+    public function getStatus(): string;
 
-    public function setStatus(string $status);
+    public function setStatus(string $status): void;
 
-    public function getData();
+    public function getData(): ?array;
 
-    public function setData(array $data);
+    public function setData(array $data): void;
 
-    public function addData(array $data);
+    public function addData(array $data): void;
 
-    public function getMessage();
+    public function getMessage(): ?string;
 
-    public function setMessage(string $message);
+    public function setMessage(string $message): void;
 
-    public function getVersion();
+    public function getVersion(): ?string;
 
-    public function setVersion(string $version);
+    public function setVersion(string $version): void;
 
-    /** @var integer|null error code */
-    public function getCode();
+    public function getCode(): ?int;
 
-    public function setCode(int $code);
+    public function setCode(int $code): void;
 
     public function setAttributes(array $data): self;
 }
