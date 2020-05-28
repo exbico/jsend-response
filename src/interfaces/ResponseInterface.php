@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace exbico\jsend\interfaces;
 
 interface ResponseInterface
@@ -14,21 +16,21 @@ interface ResponseInterface
 
     public function getData(): ?array;
 
-    public function setData(array $data): void;
+    public function setData(?array $data): void;
 
     public function addData(array $data): void;
 
     public function getMessage(): ?string;
 
-    public function setMessage(string $message): void;
+    public function setMessage(?string $message): void;
 
     public function getVersion(): ?string;
 
-    public function setVersion(string $version): void;
+    public function setVersion(?string $version): void;
 
     public function getCode(): ?int;
 
-    public function setCode(int $code): void;
+    public function setCode(?int $code): void;
 
     public function setAttributes(array $data): self;
 }

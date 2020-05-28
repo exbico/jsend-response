@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace exbico\jsend;
 
 use exbico\jsend\interfaces\ResponseInterface;
@@ -22,7 +24,7 @@ class Response implements ResponseInterface
         return (array)$this->data;
     }
 
-    public function setData(array $data): void
+    public function setData(?array $data): void
     {
         $this->data = $data;
     }
@@ -47,7 +49,7 @@ class Response implements ResponseInterface
         return $this->message;
     }
 
-    public function setMessage(string $message): void
+    public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
@@ -57,7 +59,7 @@ class Response implements ResponseInterface
         return $this->version;
     }
 
-    public function setVersion(string $version): void
+    public function setVersion(?string $version): void
     {
         $this->version = $version;
     }
@@ -67,7 +69,7 @@ class Response implements ResponseInterface
         return $this->code;
     }
 
-    public function setCode(int $code): void
+    public function setCode(?int $code): void
     {
         $this->code = $code;
     }
