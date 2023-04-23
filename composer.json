@@ -4,14 +4,9 @@
   "type": "library",
   "license": "MIT",
   "homepage": "https://bitbucket.org/exbico/jsendresponse",
-  "keywords": [
-    "JSend"
-  ],
-  "autoload": {
-    "psr-4": {
-      "exbico\\jsend\\": "src/"
-    }
-  },
+  "keywords": ["JSend"],
+  "minimum-stability": "stable",
+  "prefer-stable": true,
   "authors": [
     {
       "name": "Yurij",
@@ -27,12 +22,27 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
-    "ext-json": "*"
+    "php": "^8.0"
   },
   "require-dev": {
-    "codeception/codeception": "^2.4"
+    "phpunit/phpunit": "^10.0",
+    "squizlabs/php_codesniffer": "^3.7"
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Exbico\\JsendResponse\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "tests\\": "tests/"
+    }
+  }
 }
