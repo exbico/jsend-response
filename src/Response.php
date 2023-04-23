@@ -2,83 +2,46 @@
 
 declare(strict_types=1);
 
-namespace exbico\jsend;
+namespace Exbico\JsendResponse;
 
-use exbico\jsend\interfaces\ResponseInterface;
+use JsonException;
+use Stringable;
 
-class Response implements ResponseInterface
+final class Response implements Stringable
 {
-    public $status = self::SUCCESS;
-    public $message;
-    public $version;
-    public $data;
-    public $code;
+    public const ERROR   = 'error';
+    public const FAIL    = 'fail';
+    public const SUCCESS = 'success';
 
-    public function __toString()
-    {
-        return (string)json_encode($this);
+    public function __construct(
+        /** @var string<self::*> $status */
+        public string $status = self::SUCCESS,
+        public ?string $message = null,
+        public ?string $version = null,
+        public array $data = [],
+        public ?int $code = null,
+    ) {
     }
 
-    public function getData(): array
+    /**
+     * @return string
+     * @throws JsonException
+     */
+    public function __toString(): string
     {
-        return (array)$this->data;
-    }
-
-    public function setData(?array $data): void
-    {
-        $this->data = $data;
+        return json_encode($this, JSON_THROW_ON_ERROR);
     }
 
     public function addData(array $data): void
     {
-        $this->data = array_merge((array)$this->data, $data);
-    }
-
-    public function getStatus(): string
-    {
-        return $this->status;
-    }
-
-    public function setStatus(string $status): void
-    {
-        $this->status = $status;
-    }
-
-    public function getMessage(): ?string
-    {
-        return $this->message;
-    }
-
-    public function setMessage(?string $message): void
-    {
-        $this->message = $message;
-    }
-
-    public function getVersion(): ?string
-    {
-        return $this->version;
-    }
-
-    public function setVersion(?string $version): void
-    {
-        $this->version = $version;
-    }
-
-    public function getCode(): ?int
-    {
-        return $this->code;
-    }
-
-    public function setCode(?int $code): void
-    {
-        $this->code = $code;
+        $this->data = array_merge($this->data, $data);
     }
 
     /**
      * @param array $data
-     * @return $this
+     * @return self
      */
-    public function setAttributes(array $data): ResponseInterface
+    public function setAttributes(array $data): self
     {
         foreach ($data as $key => $item) {
             if ($item !== null && property_exists($this, $key)) {
